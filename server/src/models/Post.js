@@ -17,6 +17,11 @@ const postSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    category: {
+        type: String,
+        required: true,
+        trim: true
+    },
     image: {
         url: String,
         public_id: String

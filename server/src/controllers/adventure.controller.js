@@ -20,6 +20,7 @@ export const getAdventures = async (req, res) => {
                     {title: {$regex: search, $options: 'i'}},
                     {description: {$regex: search, $options: 'i'}},
                     {date: {$regex: search, $options: 'i'}},
+                    {category: {$regex: search, $options: 'i'}},
                 ]
             }, {
                 limit: req.query.limit,
@@ -63,7 +64,7 @@ export const getAdventure = async (req, res) => {
 }
 
 export const createAdventure = async (req, res) => {
-    const {title, description, date} = req.body;
+    const {title, description, date, category} = req.body;
     let image;
 
     try {
@@ -81,6 +82,7 @@ export const createAdventure = async (req, res) => {
             title,
             description,
             date,
+            category,
             image
         })
     
@@ -98,7 +100,7 @@ export const createAdventure = async (req, res) => {
 
 export const updateAdventure = async (req, res) => {
 
-    const {title, description, date} = req.body;
+    const {title, description, date, category} = req.body;
     let image;
 
     try {
@@ -119,6 +121,7 @@ export const updateAdventure = async (req, res) => {
             title,
             description,
             date,
+            category,
             image
         })
 
